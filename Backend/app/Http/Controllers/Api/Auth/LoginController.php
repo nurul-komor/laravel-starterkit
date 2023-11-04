@@ -12,8 +12,10 @@ class LoginController extends Controller
 
         try {
             $credentials = $request->only('email', 'password');
+
             // authenticating according to guard
             $authenticator = new AuthenticatorController;
+
             if (!$authenticator->authenticate($credentials, $request->guard)) {
                 return response()->json([
                     'status' => false,
@@ -34,7 +36,8 @@ class LoginController extends Controller
             // when there's a server error
             return response()->json([
                 'status' => false,
-                'message' => 'Internal Server error',
+                // 'message' => 'Internal Server error',
+                'message' => $th->getMessage(),
             ], 500);
         }
 

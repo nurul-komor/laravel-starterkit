@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
-class UserProfileUpdateRequest extends FormRequest
+class EmailVerificationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,14 +24,13 @@ class UserProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|max:255',
-            'profile_image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'email' => 'required|string|email|max:255|unique:users,email,' . auth('user')->user()->id,
+            "email" => "required|email"
         ];
     }
-
     /**
      * Return validation errors as json response
+     *
+     * @param Validator $validator
      */
     protected function failedValidation(Validator $validator)
     {

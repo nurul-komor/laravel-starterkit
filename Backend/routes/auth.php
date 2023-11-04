@@ -1,15 +1,15 @@
 <?php
 
-use App\Http\Controllers\Api\Auth\EmailVerificationNotificationController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Auth\LoginController;
 use App\Http\Controllers\Api\Auth\LogoutController;
+use App\Http\Controllers\Api\Auth\VerifyEmailController;
+use App\Http\Controllers\Api\Auth\UpdatePasswordController;
+use App\Http\Controllers\Api\Auth\User\RegisterUserController;
 use App\Http\Controllers\Api\Auth\User\DeleteAccountController;
 use App\Http\Controllers\Api\Auth\User\GerUserProfileController;
-use App\Http\Controllers\Api\Auth\User\RegisterUserController;
-use App\Http\Controllers\Api\Auth\User\UpdatePasswordController;
 use App\Http\Controllers\Api\Auth\User\UpdateUserProfileController;
-use App\Http\Controllers\Api\Auth\VerifyEmailController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\Auth\EmailVerificationNotificationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +28,9 @@ Route::group(['middleware' => 'maintenance'], function () {
     /*                            user register & login                           */
     /* -------------------------------------------------------------------------- */
 
-    Route::group(['prefix' => 'auth', 'as' => 'auth'], function () {
-        Route::post('register', [RegisterUserController::class, 'register']);
+    Route::group(['as' => 'api.auth'], function () {
         Route::post('login', [LoginController::class, 'login']);
+        Route::post('register', [RegisterUserController::class, 'register']);
     });
 
     /* -------------------------------------------------------------------------- */
@@ -49,7 +49,7 @@ Route::group(['middleware' => 'maintenance'], function () {
         /* -------------------------------------------------------------------------- */
         /*                             account management                             */
         /* -------------------------------------------------------------------------- */
-        Route::group(['middleware' => ['custom_verified'], 'prefix' => 'user', 'as' => 'user.'], function () {
+        Route::group(['middleware' => ['custom_verified'], 'as' => 'api.auth.'], function () {
             Route::get('/profile', [GerUserProfileController::class, 'profile']);
             Route::put('/update-profile', [UpdateUserProfileController::class, 'updateProfile']);
             Route::put('/password/update', [UpdatePasswordController::class, 'updatePassword']);

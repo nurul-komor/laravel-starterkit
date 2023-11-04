@@ -1,0 +1,668 @@
+{
+	"info": {
+		"_postman_id": "0bbe6be6-f5f6-4458-8f21-cf7144a56c35",
+		"name": "Laravel Starterkit",
+		"description": "# **For Backend:**\n\n**To Upload Image**\n\n``` php\n if ($request->hasFile('image')) {\n        $imagePath = $this->uploadImage($request->file('imageInput'), 'diractory_name');\n        // You can now save $imagePath in your database or use it as needed\n    }\n\n ```\n\n# **For Frontend:**\n\n## User authentication\n\n### Register User\n\nRegisters a new user in the system.\n\n- **URL**: `/api/register`\n- **Method**: POST\n    \n\n### Request Headers\n\n- `Content-Type`: `application/json`\n    \n\n### Request Body\n\n``` json\n{\n  \"name\": \"John Doe\",\n  \"email\": \"johndoe@example.com\",\n  \"password\": \"secret\"\n}\n\n ```",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "23937081"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "admin",
+					"item": [
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\":\"admin@gmail.com\",\r\n    \"password\":\"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/admin/login"
+							},
+							"response": []
+						},
+						{
+							"name": "admin profile",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk4NjY0NzcxLCJleHAiOjE2OTg2NjgzNzEsIm5iZiI6MTY5ODY2NDc3MSwianRpIjoiYXM2cDlVRzZEMVZvWThNOSIsInN1YiI6IjEiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.2w_eWQr55WCao2ea1iMYUaYejYjMY502jfFdobjfxLQ"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": "http://127.0.0.1:8000/api/admin/profile"
+							},
+							"response": []
+						},
+						{
+							"name": "create admin",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk4NjY0NzcxLCJleHAiOjE2OTg2NjgzNzEsIm5iZiI6MTY5ODY2NDc3MSwianRpIjoiYXM2cDlVRzZEMVZvWThNOSIsInN1YiI6IjEiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.2w_eWQr55WCao2ea1iMYUaYejYjMY502jfFdobjfxLQ"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"Test Admin\",\r\n    \"email\":\"testadmin@gmail.com\",\r\n    \"password\":\"password\",\r\n    \"password_confirmation\":\"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/admin/register"
+							},
+							"response": []
+						},
+						{
+							"name": "update profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk4NjY0NzcxLCJleHAiOjE2OTg2NjgzNzEsIm5iZiI6MTY5ODY2NDc3MSwianRpIjoiYXM2cDlVRzZEMVZvWThNOSIsInN1YiI6IjEiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.2w_eWQr55WCao2ea1iMYUaYejYjMY502jfFdobjfxLQ"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":1,\r\n    \"name\":\"Super Admin\",\r\n    \"email\":\"admin@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/admin/profile/update"
+							},
+							"response": []
+						},
+						{
+							"name": "Change Password",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk4NjY0NzcxLCJleHAiOjE2OTg2NjgzNzEsIm5iZiI6MTY5ODY2NDc3MSwianRpIjoiYXM2cDlVRzZEMVZvWThNOSIsInN1YiI6IjEiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.2w_eWQr55WCao2ea1iMYUaYejYjMY502jfFdobjfxLQ"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":1,\r\n    \"old_password\":\"password\",\r\n    \"new_password\":\"12345678\",\r\n    \"new_password_confirmation\":\"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/admin/password/update"
+							},
+							"response": []
+						},
+						{
+							"name": "delete account",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk4NDk3OTg2LCJleHAiOjE2OTg1MDE1ODYsIm5iZiI6MTY5ODQ5Nzk4NiwianRpIjoiZWRYYTNUemNZMlpxalVQMiIsInN1YiI6IjEiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.Cc_ApO_hTuHkXnFbic5MMPH10Q3LuDvlQXuvBd5qbiw"
+									}
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":1,\r\n    \"email\":\"admin@gmail.com\",\r\n    \"text\": \"onfirm\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/admin/delete-account"
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk4NjYzNTgzLCJleHAiOjE2OTg2NjcxODMsIm5iZiI6MTY5ODY2MzU4MywianRpIjoiMXBDSGFieDk1STBCWEI4biIsInN1YiI6IjEiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.2Qoag0tEDbazkX3I9FzX8YksjXrgLGGaksOA6WBI0Po"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "http://127.0.0.1:8000/api/admin/logout"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"test\",\r\n    \"email\":\"test1@gmail.com\",\r\n    \"password\":\"password\",\r\n    \"password_confirmation\":\"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/auth/register"
+							},
+							"response": []
+						},
+						{
+							"name": "Change Password",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk4MjI3NjMzLCJleHAiOjE2OTgyMzEyMzMsIm5iZiI6MTY5ODIyNzYzMywianRpIjoiQzFlcUxVTjlrcFExWkxNWCIsInN1YiI6IjEiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.cIhjK_sLc8vzI6BxbPHSSBZnEE5zJ8DVkrQa31E_-ts"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":1,\r\n    \"old_password\":\"password\",\r\n    \"new_password\":\"12345678\",\r\n    \"new_password_confirmation\":\"12345678\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/user/password/update"
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": ""
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"guard\": \"api\", //send this at it is\r\n    \"email\":\"test1@gmail.com\",\r\n    \"password\":\"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/auth/login"
+							},
+							"response": []
+						},
+						{
+							"name": "user profile",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTg3MzM1MTUsImV4cCI6MTY5ODczNzExNSwibmJmIjoxNjk4NzMzNTE1LCJqdGkiOiJmQ3ljaHU3TEZIa2pVOVpiIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.DNSgzHBBujIxVMJx4uxof89Jg14KPH31A1DkEvttQHg"
+									}
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": "http://127.0.0.1:8000/api/user/profile"
+							},
+							"response": []
+						},
+						{
+							"name": "update profile",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTg2NjEyOTgsImV4cCI6MTY5ODY2NDg5OCwibmJmIjoxNjk4NjYxMjk4LCJqdGkiOiJudUNVTXpMWDQzS2ZBb1p4Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.JCl4r6ekHRsZY7cGmpAZZTh35J3AO1mk_OEEVn9PswA"
+									}
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":2,\r\n    \"name\":\"User update\",\r\n    \"email\":\"test@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/user/update-profile"
+							},
+							"response": []
+						},
+						{
+							"name": "delete account",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTg2NjEyOTgsImV4cCI6MTY5ODY2NDg5OCwibmJmIjoxNjk4NjYxMjk4LCJqdGkiOiJudUNVTXpMWDQzS2ZBb1p4Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.JCl4r6ekHRsZY7cGmpAZZTh35J3AO1mk_OEEVn9PswA"
+									}
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id\":1,\r\n    \"email\":\"user@gmail.com\",\r\n    \"text\": \"Confirm\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "http://127.0.0.1:8000/api/user/delete-account"
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTg1NjQ4MzYsImV4cCI6MTY5ODU2ODQzNiwibmJmIjoxNjk4NTY0ODM2LCJqdGkiOiIwaWtQcjVLY2xGYk01b29lIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.fDldGH8hCLX4f3CorYsSni1WJs-_533oe6u7OQdIqpc"
+									}
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": "http://127.0.0.1:8000/api/user/logout"
+							},
+							"response": []
+						},
+						{
+							"name": "forget-password",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "user1@mail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://127.0.0.1:8000/api/user/forget-password"
+							},
+							"response": []
+						},
+						{
+							"name": "Email Verification",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTg3NDY0NTYsImV4cCI6MTY5ODgzMjg1NiwibmJmIjoxNjk4NzQ2NDU2LCJqdGkiOiJ5U3VPZ0JFNjFIWTluYW42Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.oqXz7GrFusY7AMuD9z2UXZqxvL69NIzoyITpqJUgGcQ"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "user1@mail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://127.0.0.1:8000/api/email/verification-notification"
+							},
+							"response": []
+						},
+						{
+							"name": "Email Mark as verified",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTg3NDY0NTYsImV4cCI6MTY5ODgzMjg1NiwibmJmIjoxNjk4NzQ2NDU2LCJqdGkiOiJ5U3VPZ0JFNjFIWTluYW42Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.oqXz7GrFusY7AMuD9z2UXZqxvL69NIzoyITpqJUgGcQ"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "user1@mail.com",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://127.0.0.1:8000/api/email/verification-notification"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "user-management",
+			"item": [
+				{
+					"name": "all admin user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk4NDcwODk5LCJleHAiOjE2OTg0NzQ0OTksIm5iZiI6MTY5ODQ3MDg5OSwianRpIjoibmYzQUJvWlhkSml0aGJkMyIsInN1YiI6IjEiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.jQWv0qUCyN6qxmw0WbNoN1w7POmIN3CiuU85T-e49gw"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "http://127.0.0.1:8000/api/admin/admin-users"
+					},
+					"response": []
+				},
+				{
+					"name": "adminuserdelete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk3NDQ5MDY1LCJleHAiOjE2OTc0NTI2NjUsIm5iZiI6MTY5NzQ0OTA2NSwianRpIjoiZUZQQXA0YjNhZ1lGMllBNCIsInN1YiI6IjEiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.KDBifNikLsUhVjUd_EdgXuhiENz9Fb1NYLdMYWJf4rw"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://127.0.0.1:8000/api/admin/adminuserdelete/3"
+					},
+					"response": []
+				},
+				{
+					"name": "all user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk3NDU0NjUyLCJleHAiOjE2OTc0NTgyNTIsIm5iZiI6MTY5NzQ1NDY1MiwianRpIjoiNEdIRG5lUVBlWk5DTWIyVyIsInN1YiI6IjEiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.zZv0kirBCJ4keo1Cyi4iiXPm0xXdgg3habLv2eAwmP8"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:8000/api/admin/allusers"
+					},
+					"response": []
+				},
+				{
+					"name": "userupdate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk3NDU0NjUyLCJleHAiOjE2OTc0NTgyNTIsIm5iZiI6MTY5NzQ1NDY1MiwianRpIjoiNEdIRG5lUVBlWk5DTWIyVyIsInN1YiI6IjEiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.zZv0kirBCJ4keo1Cyi4iiXPm0xXdgg3habLv2eAwmP8"
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/admin/usersupdate/2?status=0",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"admin",
+								"usersupdate",
+								"2"
+							],
+							"query": [
+								{
+									"key": "is_banned",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UserEdit",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:8000/api/admin/useredit/2"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "helpers",
+			"item": [
+				{
+					"name": "site-optimize",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk4NjY0NzcxLCJleHAiOjE2OTg2NjgzNzEsIm5iZiI6MTY5ODY2NDc3MSwianRpIjoiYXM2cDlVRzZEMVZvWThNOSIsInN1YiI6IjEiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.2w_eWQr55WCao2ea1iMYUaYejYjMY502jfFdobjfxLQ"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "http://127.0.0.1:8000/api/admin/site/optimize"
+					},
+					"response": []
+				},
+				{
+					"name": "database-clear",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk4NjY0NzcxLCJleHAiOjE2OTg2NjgzNzEsIm5iZiI6MTY5ODY2NDc3MSwianRpIjoiYXM2cDlVRzZEMVZvWThNOSIsInN1YiI6IjEiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.2w_eWQr55WCao2ea1iMYUaYejYjMY502jfFdobjfxLQ"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "http://127.0.0.1:8000/api/admin/site/clear-database"
+					},
+					"response": []
+				},
+				{
+					"name": "create database backup",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "http://127.0.0.1:8000/api/admin/database/backup/crete"
+					},
+					"response": []
+				},
+				{
+					"name": "all database backups",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "http://127.0.0.1:8000/api/admin/database/backups/get"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

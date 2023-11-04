@@ -14,8 +14,8 @@ class UpdateUserProfileController extends Controller
     // Login user profile update
     public function updateProfile(UserProfileUpdateRequest $request)
     {
-        $user = User::find(auth('api')->user()->id);
-
+        $user = User::find(auth('user')->user()->id);
+        return $user;
         /* ------------------------ when you have image field ----------------------- */
         $profile_image = $this->uploadImage($request->file('profile_image'), "users");
         if ($profile_image == null) {
@@ -26,7 +26,7 @@ class UpdateUserProfileController extends Controller
 
         /* ------------------------ when you have image field ----------------------- */
         // $user->update($request->all());
-        $user = User::find(auth('api')->user()->id);
+        // $user = User::find(auth('user')->user()->id);
         return response()->json([
             'status' => true,
             'message' => 'User updated successfully',

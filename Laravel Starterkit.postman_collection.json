@@ -224,7 +224,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"name\":\"test\",\r\n    \"email\":\"test1@gmail.com\",\r\n    \"password\":\"password\",\r\n    \"password_confirmation\":\"password\"\r\n}",
+									"raw": "{\r\n    \"name\":\"test\",\r\n    \"email\":\"test2@gmail.com\",\r\n    \"password\":\"password\",\r\n    \"password_confirmation\":\"password\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -241,10 +241,10 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk4MjI3NjMzLCJleHAiOjE2OTgyMzEyMzMsIm5iZiI6MTY5ODIyNzYzMywianRpIjoiQzFlcUxVTjlrcFExWkxNWCIsInN1YiI6IjEiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.cIhjK_sLc8vzI6BxbPHSSBZnEE5zJ8DVkrQa31E_-ts"
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTkxMTA5NTAsImV4cCI6MTY5OTE5NzM1MCwibmJmIjoxNjk5MTEwOTUwLCJqdGkiOiJDS05YcEJFZnFPMFZuYmdmIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJkYXRhIjp7ImlkIjoxLCJuYW1lIjoiVXNlciIsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZF9hdCI6bnVsbCwibGFzdF9sb2dpbiI6IlRodXJzZGF5IDJuZCBvZiBOb3ZlbWJlciAyMDIzIDAzOjM4OjAwIFBNIiwiY3JlYXRlZF9hdCI6IjIwMjMtMTEtMDJUMTU6Mzg6MDAuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDIzLTExLTAyVDE1OjM4OjAwLjAwMDAwMFoifX0.ZRjmZAGWM5vXTR7TCltAGpRgq52JqPigkH9JrEcu7yE"
 									}
 								},
-								"method": "PUT",
+								"method": "POST",
 								"header": [
 									{
 										"key": "Accept",
@@ -253,15 +253,54 @@
 									}
 								],
 								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"id\":1,\r\n    \"old_password\":\"password\",\r\n    \"new_password\":\"12345678\",\r\n    \"new_password_confirmation\":\"12345678\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
+										},
+										{
+											"key": "old_password",
+											"value": "password1",
+											"type": "text"
+										},
+										{
+											"key": "new_password",
+											"value": "password",
+											"type": "text"
+										},
+										{
+											"key": "new_password_confirmation",
+											"value": "password",
+											"type": "text"
 										}
-									}
+									]
 								},
-								"url": "http://127.0.0.1:8000/api/user/password/update"
+								"url": {
+									"raw": "http://127.0.0.1:8000/api/auth/password/update",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"auth",
+										"password",
+										"update"
+									],
+									"query": [
+										{
+											"key": "_method",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
 							},
 							"response": []
 						},
@@ -284,7 +323,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"guard\": \"api\", //send this at it is\r\n    \"email\":\"test1@gmail.com\",\r\n    \"password\":\"password\"\r\n}",
+									"raw": "{\r\n    \"guard\": \"user\", //send this at it is\r\n    \"email\":\"user@gmail.com\",\r\n    \"password\":\"password\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -304,7 +343,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTg3MzM1MTUsImV4cCI6MTY5ODczNzExNSwibmJmIjoxNjk4NzMzNTE1LCJqdGkiOiJmQ3ljaHU3TEZIa2pVOVpiIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.DNSgzHBBujIxVMJx4uxof89Jg14KPH31A1DkEvttQHg"
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTkxMTMzMTgsImV4cCI6MTY5OTE5OTcxOCwibmJmIjoxNjk5MTEzMzE4LCJqdGkiOiJSQW9IY0lzUXZZZWFjRFNGIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJkYXRhIjp7ImlkIjoxLCJuYW1lIjoiVXNlciIsInByb2ZpbGVfaW1hZ2UiOm51bGwsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZF9hdCI6bnVsbCwibGFzdF9sb2dpbiI6IlNhdHVyZGF5IDR0aCBvZiBOb3ZlbWJlciAyMDIzIDAzOjIxOjM0IFBNIiwiY3JlYXRlZF9hdCI6IjIwMjMtMTEtMDRUMTU6MjE6MzQuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDIzLTExLTA0VDE1OjU0OjUwLjAwMDAwMFoifX0.HiDun4x5ciJWiLVkt557Z1RljGfJD9wz1geezlnb9_E"
 									}
 								},
 								"method": "GET",
@@ -319,7 +358,7 @@
 									"mode": "formdata",
 									"formdata": []
 								},
-								"url": "http://127.0.0.1:8000/api/user/profile"
+								"url": "http://127.0.0.1:8000/api/auth/profile"
 							},
 							"response": []
 						},
@@ -329,10 +368,10 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTg2NjEyOTgsImV4cCI6MTY5ODY2NDg5OCwibmJmIjoxNjk4NjYxMjk4LCJqdGkiOiJudUNVTXpMWDQzS2ZBb1p4Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.JCl4r6ekHRsZY7cGmpAZZTh35J3AO1mk_OEEVn9PswA"
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTkxMTA5NTAsImV4cCI6MTY5OTE5NzM1MCwibmJmIjoxNjk5MTEwOTUwLCJqdGkiOiJDS05YcEJFZnFPMFZuYmdmIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJkYXRhIjp7ImlkIjoxLCJuYW1lIjoiVXNlciIsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZF9hdCI6bnVsbCwibGFzdF9sb2dpbiI6IlRodXJzZGF5IDJuZCBvZiBOb3ZlbWJlciAyMDIzIDAzOjM4OjAwIFBNIiwiY3JlYXRlZF9hdCI6IjIwMjMtMTEtMDJUMTU6Mzg6MDAuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDIzLTExLTAyVDE1OjM4OjAwLjAwMDAwMFoifX0.ZRjmZAGWM5vXTR7TCltAGpRgq52JqPigkH9JrEcu7yE"
 									}
 								},
-								"method": "PUT",
+								"method": "POST",
 								"header": [
 									{
 										"key": "Accept",
@@ -341,15 +380,16 @@
 									}
 								],
 								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"id\":2,\r\n    \"name\":\"User update\",\r\n    \"email\":\"test@gmail.com\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "_method",
+											"value": "PUT",
+											"type": "text"
 										}
-									}
+									]
 								},
-								"url": "http://127.0.0.1:8000/api/user/update-profile"
+								"url": "http://127.0.0.1:8000/api/auth/update-profile"
 							},
 							"response": []
 						},
@@ -379,7 +419,7 @@
 										}
 									}
 								},
-								"url": "http://127.0.0.1:8000/api/user/delete-account"
+								"url": "http://127.0.0.1:8000/api/auth/delete-account"
 							},
 							"response": []
 						},
@@ -389,7 +429,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTg1NjQ4MzYsImV4cCI6MTY5ODU2ODQzNiwibmJmIjoxNjk4NTY0ODM2LCJqdGkiOiIwaWtQcjVLY2xGYk01b29lIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.fDldGH8hCLX4f3CorYsSni1WJs-_533oe6u7OQdIqpc"
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTkxMTMzMTgsImV4cCI6MTY5OTE5OTcxOCwibmJmIjoxNjk5MTEzMzE4LCJqdGkiOiJSQW9IY0lzUXZZZWFjRFNGIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJkYXRhIjp7ImlkIjoxLCJuYW1lIjoiVXNlciIsInByb2ZpbGVfaW1hZ2UiOm51bGwsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZF9hdCI6bnVsbCwibGFzdF9sb2dpbiI6IlNhdHVyZGF5IDR0aCBvZiBOb3ZlbWJlciAyMDIzIDAzOjIxOjM0IFBNIiwiY3JlYXRlZF9hdCI6IjIwMjMtMTEtMDRUMTU6MjE6MzQuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDIzLTExLTA0VDE1OjU0OjUwLjAwMDAwMFoifX0.HiDun4x5ciJWiLVkt557Z1RljGfJD9wz1geezlnb9_E"
 									}
 								},
 								"method": "POST",
@@ -400,7 +440,17 @@
 										"type": "text"
 									}
 								],
-								"url": "http://127.0.0.1:8000/api/user/logout"
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "guard",
+											"value": "user",
+											"type": "text"
+										}
+									]
+								},
+								"url": "http://127.0.0.1:8000/api/auth/logout"
 							},
 							"response": []
 						},
@@ -432,22 +482,46 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTg3NDY0NTYsImV4cCI6MTY5ODgzMjg1NiwibmJmIjoxNjk4NzQ2NDU2LCJqdGkiOiJ5U3VPZ0JFNjFIWTluYW42Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.oqXz7GrFusY7AMuD9z2UXZqxvL69NIzoyITpqJUgGcQ"
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTkxMTQzMzgsImV4cCI6MTY5OTIwMDczOCwibmJmIjoxNjk5MTE0MzM4LCJqdGkiOiJlamVVdkx2dzNUVjlwbkhVIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJkYXRhIjp7ImlkIjoxLCJuYW1lIjoiVXNlciIsInByb2ZpbGVfaW1hZ2UiOm51bGwsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZF9hdCI6bnVsbCwibGFzdF9sb2dpbiI6IlNhdHVyZGF5IDR0aCBvZiBOb3ZlbWJlciAyMDIzIDAzOjIxOjM0IFBNIiwiY3JlYXRlZF9hdCI6IjIwMjMtMTEtMDRUMTU6MjE6MzQuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDIzLTExLTA0VDE1OjU0OjUwLjAwMDAwMFoifX0.8bcqy--ZDu3wtoMIm9gRUxQvZhwXR5-1BZx7-AnB7Ag"
 									}
 								},
 								"method": "POST",
-								"header": [],
+								"header": [
+									{
+										"key": "Content-Transfer-Encoding",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
 								"body": {
 									"mode": "formdata",
 									"formdata": [
 										{
 											"key": "email",
-											"value": "user1@mail.com",
+											"value": "user@gmail.com",
 											"type": "text"
+										},
+										{
+											"key": "name",
+											"value": "name",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "guard",
+											"value": "admin",
+											"type": "text",
+											"disabled": true
 										}
 									]
 								},
-								"url": "http://127.0.0.1:8000/api/email/verification-notification"
+								"url": "http://127.0.0.1:8000/api/auth/email/verification-notification"
 							},
 							"response": []
 						},

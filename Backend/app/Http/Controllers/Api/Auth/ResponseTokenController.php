@@ -11,7 +11,7 @@ class ResponseTokenController extends Controller
      *
      * @param  string  $token
      */
-    public function respondWithToken($token, $guard = 'api')
+    public function respondWithToken($token, $guard = 'user')
     {
         return [
             'access_token' => $token,

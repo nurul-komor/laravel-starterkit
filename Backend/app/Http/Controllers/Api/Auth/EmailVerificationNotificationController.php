@@ -2,20 +2,23 @@
 
 namespace App\Http\Controllers\Api\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Notifications\EmailVerificationMail;
 use Exception;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
+use App\Notifications\EmailVerificationMail;
+use App\Http\Requests\EmailVerificationRequest;
+use App\Http\Controllers\Api\Auth\SendEmailVerificationMailController;
 
 class EmailVerificationNotificationController extends Controller
 {
     /**
      * Send a new email verification notification.
      */
-    public function store(Request $request, $guard = null): JsonResponse|RedirectResponse
+    // : JsonResponse|RedirectResponse
+    public function store(EmailVerificationRequest $request)
     {
 
         try {
@@ -26,21 +29,24 @@ class EmailVerificationNotificationController extends Controller
             ])->save();
 
             // sending verification mail
-            $request->user()->notify(new EmailVerificationMail($request->user(), $hash, $guard));
+            $mailSender = new SendEmailVerificationMailController;
+
+            $result = $mailSender->sendVerifyMail($request->all(), $hash, $request->guard);
+
         } catch (Exception $e) {
             info($e->getMessage());
-
             return response()->json([
                 'status' => false,
-                'message' => 'Opps! Something went wrong please try again letter',
+                // 'message' => 'Opps! Something went wrong please try again letter',
+                'message' => $e->getMessage(),
 
-            ], 200);
+            ], 500);
         }
 
         return response()->json([
-            'status' => true,
-            'message' => 'Verification link sent',
+            'status' => $result['status'],
+            'message' => $result['message'],
 
-        ], 200);
+        ], $result['statusCode']);
     }
 }

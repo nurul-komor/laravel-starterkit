@@ -1,10 +1,11 @@
 {
 	"info": {
-		"_postman_id": "0bbe6be6-f5f6-4458-8f21-cf7144a56c35",
+		"_postman_id": "95dfd861-0d38-473d-abf3-5e425048947c",
 		"name": "Laravel Starterkit",
 		"description": "# **For Backend:**\n\n**To Upload Image**\n\n``` php\n if ($request->hasFile('image')) {\n        $imagePath = $this->uploadImage($request->file('imageInput'), 'diractory_name');\n        // You can now save $imagePath in your database or use it as needed\n    }\n\n ```\n\n# **For Frontend:**\n\n## User authentication\n\n### Register User\n\nRegisters a new user in the system.\n\n- **URL**: `/api/register`\n- **Method**: POST\n    \n\n### Request Headers\n\n- `Content-Type`: `application/json`\n    \n\n### Request Body\n\n``` json\n{\n  \"name\": \"John Doe\",\n  \"email\": \"johndoe@example.com\",\n  \"password\": \"secret\"\n}\n\n ```",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "23937081"
+		"_exporter_id": "23937081",
+		"_collection_link": "https://blue-space-48685.postman.co/workspace/z8-tech~5e0969c8-ac18-4b4b-a59e-078738d70a09/collection/23937081-95dfd861-0d38-473d-abf3-5e425048947c?action=share&source=collection_link&creator=23937081"
 	},
 	"item": [
 		{
@@ -25,15 +26,13 @@
 									}
 								],
 								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"email\":\"admin@gmail.com\",\r\n    \"password\":\"password\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
+									"mode": "graphql",
+									"graphql": {
+										"query": "",
+										"variables": ""
 									}
 								},
-								"url": "http://127.0.0.1:8000/api/admin/login"
+								"url": "http://127.0.0.1:8000/api/admin/auth/login"
 							},
 							"response": []
 						},
@@ -46,7 +45,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk4NjY0NzcxLCJleHAiOjE2OTg2NjgzNzEsIm5iZiI6MTY5ODY2NDc3MSwianRpIjoiYXM2cDlVRzZEMVZvWThNOSIsInN1YiI6IjEiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.2w_eWQr55WCao2ea1iMYUaYejYjMY502jfFdobjfxLQ"
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2F1dGgvbG9naW4iLCJpYXQiOjE2OTkxNzEyNDAsImV4cCI6MTY5OTI1NzY0MCwibmJmIjoxNjk5MTcxMjQwLCJqdGkiOiIxRDZKY21aR3lxa2cwTWlYIiwic3ViIjoiMSIsInBydiI6ImRmODgzZGI5N2JkMDVlZjhmZjg1MDgyZDY4NmM0NWU4MzJlNTkzYTkiLCJkYXRhIjp7ImlkIjoxLCJuYW1lIjoiU3VwZXJhZG1pbiIsInByb2ZpbGVfaW1hZ2UiOiJhZG1pbnMvMTY5OTA5OTAzMV9zcGxhc2gtbi5qcGciLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkX2F0IjpudWxsLCJpc19kaXNhYmxlIjowLCJzdGF0dXMiOjEsImlzX3N1cGVyYWRtaW4iOjEsImxhc3RfbG9naW4iOiJTYXR1cmRheSA0dGggb2YgTm92ZW1iZXIgMjAyMyAwNzowNDo0NSBBTSIsImNyZWF0ZWRfYXQiOiIyMDIzLTExLTA0VDA3OjA0OjQ1LjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyMy0xMS0wNFQxMTo1NzoxMS4wMDAwMDBaIn19.TlHSx06Wxej04kInnJ7XeTuk-gq74-BraCZPoGaSM48"
 									}
 								},
 								"method": "GET",
@@ -61,7 +60,7 @@
 									"mode": "raw",
 									"raw": ""
 								},
-								"url": "http://127.0.0.1:8000/api/admin/profile"
+								"url": "http://127.0.0.1:8000/api/admin/auth/profile"
 							},
 							"response": []
 						},
@@ -71,7 +70,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2xvZ2luIiwiaWF0IjoxNjk4NjY0NzcxLCJleHAiOjE2OTg2NjgzNzEsIm5iZiI6MTY5ODY2NDc3MSwianRpIjoiYXM2cDlVRzZEMVZvWThNOSIsInN1YiI6IjEiLCJwcnYiOiJkZjg4M2RiOTdiZDA1ZWY4ZmY4NTA4MmQ2ODZjNDVlODMyZTU5M2E5In0.2w_eWQr55WCao2ea1iMYUaYejYjMY502jfFdobjfxLQ"
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2FkbWluL2F1dGgvbG9naW4iLCJpYXQiOjE2OTkxNzEyNDAsImV4cCI6MTY5OTI1NzY0MCwibmJmIjoxNjk5MTcxMjQwLCJqdGkiOiIxRDZKY21aR3lxa2cwTWlYIiwic3ViIjoiMSIsInBydiI6ImRmODgzZGI5N2JkMDVlZjhmZjg1MDgyZDY4NmM0NWU4MzJlNTkzYTkiLCJkYXRhIjp7ImlkIjoxLCJuYW1lIjoiU3VwZXJhZG1pbiIsInByb2ZpbGVfaW1hZ2UiOiJhZG1pbnMvMTY5OTA5OTAzMV9zcGxhc2gtbi5qcGciLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkX2F0IjpudWxsLCJpc19kaXNhYmxlIjowLCJzdGF0dXMiOjEsImlzX3N1cGVyYWRtaW4iOjEsImxhc3RfbG9naW4iOiJTYXR1cmRheSA0dGggb2YgTm92ZW1iZXIgMjAyMyAwNzowNDo0NSBBTSIsImNyZWF0ZWRfYXQiOiIyMDIzLTExLTA0VDA3OjA0OjQ1LjAwMDAwMFoiLCJ1cGRhdGVkX2F0IjoiMjAyMy0xMS0wNFQxMTo1NzoxMS4wMDAwMDBaIn19.TlHSx06Wxej04kInnJ7XeTuk-gq74-BraCZPoGaSM48"
 									}
 								},
 								"method": "POST",
@@ -91,7 +90,7 @@
 										}
 									}
 								},
-								"url": "http://127.0.0.1:8000/api/admin/register"
+								"url": "http://127.0.0.1:8000/api/admin/auth/register"
 							},
 							"response": []
 						},
@@ -482,7 +481,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTkxMTQzMzgsImV4cCI6MTY5OTIwMDczOCwibmJmIjoxNjk5MTE0MzM4LCJqdGkiOiJlamVVdkx2dzNUVjlwbkhVIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJkYXRhIjp7ImlkIjoxLCJuYW1lIjoiVXNlciIsInByb2ZpbGVfaW1hZ2UiOm51bGwsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZF9hdCI6bnVsbCwibGFzdF9sb2dpbiI6IlNhdHVyZGF5IDR0aCBvZiBOb3ZlbWJlciAyMDIzIDAzOjIxOjM0IFBNIiwiY3JlYXRlZF9hdCI6IjIwMjMtMTEtMDRUMTU6MjE6MzQuMDAwMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDIzLTExLTA0VDE1OjU0OjUwLjAwMDAwMFoifX0.8bcqy--ZDu3wtoMIm9gRUxQvZhwXR5-1BZx7-AnB7Ag"
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTkxNjY2NDEsImV4cCI6MTY5OTI1MzA0MSwibmJmIjoxNjk5MTY2NjQxLCJqdGkiOiJDdmNiMjJFcUhjWEo1T1REIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJkYXRhIjp7ImlkIjoxLCJuYW1lIjoidGVzdCB1c2VyIiwicHJvZmlsZV9pbWFnZSI6InVzZXJzLzE2OTkwOTQ4NThfc3BsYXNoLW4uanBnIiwiZW1haWwiOiJ1c2VyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkX2F0IjpudWxsLCJsYXN0X2xvZ2luIjoiU2F0dXJkYXkgNHRoIG9mIE5vdmVtYmVyIDIwMjMgMDc6MDQ6NDUgQU0iLCJjcmVhdGVkX2F0IjoiMjAyMy0xMS0wNFQwNzowNDo0NS4wMDAwMDBaIiwidXBkYXRlZF9hdCI6IjIwMjMtMTEtMDVUMDY6MDY6MjkuMDAwMDAwWiJ9fQ.RwsEvGHSivz8BRr7KpQ8ho9kxr9Jp9wXcgaQcCSSPSo"
 									}
 								},
 								"method": "POST",
@@ -531,7 +530,7 @@
 								"auth": {
 									"type": "bearer",
 									"bearer": {
-										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTg3NDY0NTYsImV4cCI6MTY5ODgzMjg1NiwibmJmIjoxNjk4NzQ2NDU2LCJqdGkiOiJ5U3VPZ0JFNjFIWTluYW42Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.oqXz7GrFusY7AMuD9z2UXZqxvL69NIzoyITpqJUgGcQ"
+										"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2F1dGgvbG9naW4iLCJpYXQiOjE2OTkxNjY2NDEsImV4cCI6MTY5OTI1MzA0MSwibmJmIjoxNjk5MTY2NjQxLCJqdGkiOiJDdmNiMjJFcUhjWEo1T1REIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjciLCJkYXRhIjp7ImlkIjoxLCJuYW1lIjoidGVzdCB1c2VyIiwicHJvZmlsZV9pbWFnZSI6InVzZXJzLzE2OTkwOTQ4NThfc3BsYXNoLW4uanBnIiwiZW1haWwiOiJ1c2VyQGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkX2F0IjpudWxsLCJsYXN0X2xvZ2luIjoiU2F0dXJkYXkgNHRoIG9mIE5vdmVtYmVyIDIwMjMgMDc6MDQ6NDUgQU0iLCJjcmVhdGVkX2F0IjoiMjAyMy0xMS0wNFQwNzowNDo0NS4wMDAwMDBaIiwidXBkYXRlZF9hdCI6IjIwMjMtMTEtMDVUMDY6MDY6MjkuMDAwMDAwWiJ9fQ.RwsEvGHSivz8BRr7KpQ8ho9kxr9Jp9wXcgaQcCSSPSo"
 									}
 								},
 								"method": "POST",
@@ -541,12 +540,22 @@
 									"formdata": [
 										{
 											"key": "email",
-											"value": "user1@mail.com",
+											"value": "user@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "hash",
+											"value": "NDZlqVKqMVW9ESDCGuA98a1NR0PxnPryqwpubKMW3coUMy8N1ZXid5RhjTi9",
+											"type": "text"
+										},
+										{
+											"key": "guard",
+											"value": "user",
 											"type": "text"
 										}
 									]
 								},
-								"url": "http://127.0.0.1:8000/api/email/verification-notification"
+								"url": "http://127.0.0.1:8000/api/auth/email/verify"
 							},
 							"response": []
 						}

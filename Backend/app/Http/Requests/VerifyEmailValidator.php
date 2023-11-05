@@ -26,7 +26,7 @@ class VerifyEmailValidator extends FormRequest
         return [
             'hash' => 'required',
             'email' => 'required|email',
-            'guard' => 'required',
+            // 'guard' => 'required',
         ];
     }
 

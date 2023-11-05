@@ -1,5 +1,5 @@
 <?php
-
+// need
 namespace App\Http\Controllers\Api\Auth\User;
 
 use App\Models\User;
@@ -15,7 +15,7 @@ class UpdateUserProfileController extends Controller
     public function updateProfile(UserProfileUpdateRequest $request)
     {
         $user = User::find(auth('user')->user()->id);
-        return $user;
+
         /* ------------------------ when you have image field ----------------------- */
         $profile_image = $this->uploadImage($request->file('profile_image'), "users");
         if ($profile_image == null) {

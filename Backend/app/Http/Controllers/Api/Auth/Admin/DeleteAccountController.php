@@ -1,5 +1,5 @@
 <?php
-
+// need
 namespace App\Http\Controllers\Api\Auth\Admin;
 
 use App\Http\Controllers\Controller;
@@ -10,66 +10,8 @@ use Illuminate\Support\Facades\Validator;
 class DeleteAccountController extends Controller
 {
     //  admin delete
-    // public function deleteProfile(DeleteAccountRequest $request)
-    // {
 
-    //     $request_user = Admin::find($request->id);
-    //     // check user exist or not
-    //     if ($request_user) {
-    //         if ($request_user->is_superadmin == 1) {
-    //             return response()->json([
-    //                 'status' => false,
-    //                 'message' => "Superadmin can't be deleted",
-    //             ], 401);
-    //         } else {
-    //             // check text match or not
-    //             if ($request->text == 'confirm' || $request->text == 'Confirm') {
-    //                 // check user email match or not
-    //                 if ($request_user->email == $request->email) {
-    //                     if ($request_user) {
-    //                         $user = auth('admin')->user();
-
-    //                         if ($user == $request_user) {
-    //                             $request_user->delete();
-
-    //                             return response()->json([
-    //                                 'status' => true,
-    //                                 'message' => 'User deleted successfully',
-    //                             ], 200);
-    //                         } else {
-    //                             return response()->json([
-    //                                 'status' => false,
-    //                                 'message' => 'User not found',
-    //                             ], 409);
-    //                         }
-    //                     } else {
-    //                         return response()->json([
-    //                             'status' => false,
-    //                             'message' => 'User not found',
-    //                         ], 409);
-    //                     }
-    //                 } else {
-    //                     return response()->json([
-    //                         'status' => false,
-    //                         'message' => 'Invalid Email',
-    //                     ], 409);
-    //                 }
-    //             } else {
-    //                 return response()->json([
-    //                     'status' => false,
-    //                     'message' => 'Invalid text',
-    //                 ], 409);
-    //             }
-    //         }
-    //     } else {
-    //         return response()->json([
-    //             'status' => false,
-    //             'message' => 'Admin not found.',
-    //         ], 409);
-    //     }
-    // }
-
-    public function deleteAdmin($request)
+    public function deleteAdmin(DeleteAccountRequest $request)
     {
         $request_user = Admin::find($request->id);
 

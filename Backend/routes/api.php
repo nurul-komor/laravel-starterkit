@@ -30,15 +30,3 @@ Route::group(['middleware' => 'jwt:admin', 'prefix' => '/admin'], function () {
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
 // });
-
-// Admin Routes
-Route::group(['middleware' => 'jwt:admin', 'prefix' => '/admin'], function () {
-    Route::delete('/adminuserdelete/{id}', [AdminController::class, 'AdminUserDelete']);
-    Route::get('/allusers', [AdminController::class, 'AllUsers']);
-    Route::get('/useredit/{id}', [AdminController::class, 'UserEdit']);
-    Route::put('/usersupdate/{id}', [AdminController::class, 'UserUpdate']);
-
-    // user management
-    Route::get('/admin-users', [AdminController::class, 'AdminUser']);
-
-});

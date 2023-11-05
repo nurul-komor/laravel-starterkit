@@ -1,5 +1,5 @@
 <?php
-
+// need
 namespace App\Http\Controllers\Helpers;
 
 use App\Http\Controllers\Controller;
@@ -12,7 +12,7 @@ class GetDbBackupController extends Controller
     {
         $backups = DatabaseTableBackup::latest()->get();
         foreach ($backups as $backup) {
-            $backup['link'] = storage_path('/app/backups/'.$backup->file_name);
+            $backup['link'] = storage_path('/app/backups/' . $backup->file_name);
         }
 
         return response()->json([

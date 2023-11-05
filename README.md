@@ -12,8 +12,7 @@ JWT Starter Kit with SOLID Design: A robust boilerplate for building secure web 
 
 ### User authentication
 
-#### User Registration
-To convert the API documentation into a README format, you can use Markdown. Here's the API documentation formatted for a README:
+
 
 ---
 
@@ -49,18 +48,61 @@ POST /api/auth/login
 
 ---
 
+
+
+    
+
+#### Get User Profile
+
+- **Endpoint**: `/api/auth/profile`
+- **Method**: `GET`
+- **Description**: Retrieve the user's profile information.
+
+**Request**:
+
+- Headers:
+  - `Authorization: Bearer YOUR_API_TOKEN`
+
+**Response**:
+
+- Status: 200 OK
+- Body:
+
+```json
+{
+    "id": 1,
+    "name": "John Doe",
+    "email": "john@example.com",
+    // Additional user profile data
+}
+```
+
+
 ## User Profile Update
 
 ### Update the user's profile.
 
-```http
-POST /api/auth/update-profile
-```
 
-| Parameter | Type     | Description                      |
-|-----------|----------|----------------------------------|
-| `name`    | `string` | Optional. Updated user name.     |
-| `email`   | `string,email` | Optional. Updated user email.  |
+- **Endpoint**: `/api/auth/update-profile`
+- **Method**: `GET`
+- **Description**: Retrieve the user's profile information.
+
+**Request**:
+
+- Headers:
+  - `Authorization: Bearer YOUR_API_TOKEN`
+
+**Response**:
+
+- Status: 200 OK
+- Body:
+
+```json
+{
+    "status": true,
+    "message" : "Profile Updated Successfully"
+}
+```
 
 ---
 
@@ -117,4 +159,4 @@ No additional parameters are required. Authentication token is needed.
 
 ---
 
-You can use this formatted content in your README to provide clear and organized documentation for your API.
+

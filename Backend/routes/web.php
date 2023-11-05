@@ -16,21 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-
-
-
-/* -------------------------------------------------------------------------- */
-/*                        email verification for blade                        */
-/* -------------------------------------------------------------------------- */
-
-// Route::get('verify-email', EmailVerificationPromptController::class)
-//     ->name('verification.notice');
-
-// Route::get('verify-email/{id}/{hash}', VerifyEmailController::class)
-//     ->middleware(['signed', 'throttle:6,1'])
-//     ->name('verification.verify');
-
-// Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
-//     ->middleware('throttle:6,1')
-//     ->name('verification.send');

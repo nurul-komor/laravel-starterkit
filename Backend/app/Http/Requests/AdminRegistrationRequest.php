@@ -25,7 +25,7 @@ class AdminRegistrationRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email:rfc,dns|max:255|unique:admins',
+            'email' => 'required|string|max:255|unique:admins',
             'password' => 'required|confirmed|string',
         ];
     }

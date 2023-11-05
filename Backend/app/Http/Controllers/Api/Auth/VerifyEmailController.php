@@ -1,5 +1,5 @@
 <?php
-
+// need
 namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
@@ -15,28 +15,26 @@ class VerifyEmailController extends Controller
      */
     public function __invoke(VerifyEmailValidator $request)
     {
-
         if ($request->guard == 'admin') {
             $user = Admin::where(['email' => $request->email, 'remember_token' => $request->hash])->first();
         } else {
             $user = User::where(['email' => $request->email, 'remember_token' => $request->hash])->first();
         }
 
-        if (! $request->user()->email_verified_at && $user && $request->email == $request->user()->email) {
-            // marking email as verified
-
-            $user->markEmailAsVerified();
-
+        if (!$user) {
             return response()->json([
-                'status' => true,
-                'message' => 'Successfully verified email',
-            ], 200);
-
+                'status' => false,
+                'message' => 'Invalid email or token!',
+            ], 400);
         }
 
+
+
+        $user->markEmailAsVerified();
+
         return response()->json([
-            'status' => false,
-            'message' => 'Failed to verify email!',
-        ], 400);
+            'status' => true,
+            'message' => 'Successfully verified email',
+        ], 200);
     }
 }

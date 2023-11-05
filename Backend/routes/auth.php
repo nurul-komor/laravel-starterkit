@@ -59,8 +59,3 @@ Route::group(['middleware' => 'maintenance'], function () {
         Route::post('/logout', [LogoutController::class, 'logout']);
     });
 });
-
-// Route::post('user/forget-password', [AuthController::class, 'ForgetPassword']);
-// Route::post('sendEmail', [MailController::class, 'sendEmail']);
-// Route::post('sendPasswordResetLink', [PasswordResetRequestController::class, 'sendEmail']);
-// Route::put('response-password-reset', [ResetPasswordController::class, 'updatePassword']);

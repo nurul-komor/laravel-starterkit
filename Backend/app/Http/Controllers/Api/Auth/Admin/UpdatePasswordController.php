@@ -1,5 +1,5 @@
 <?php
-
+// need
 namespace App\Http\Controllers\Api\Auth\Admin;
 
 use App\Http\Controllers\Controller;
@@ -15,7 +15,7 @@ class UpdatePasswordController extends Controller
 
         $admin = Admin::find(auth('admin')->user()->id);
 
-        if (! Hash::check($request->old_password, $admin->password)) {
+        if (!Hash::check($request->old_password, $admin->password)) {
             return response()->json([
                 'status' => false,
                 'message' => "Current password doesn't match.",
@@ -25,7 +25,7 @@ class UpdatePasswordController extends Controller
         if (Hash::check($request->new_password, $admin->password)) {
             return response()->json([
                 'status' => false,
-                'message' => 'You entired previous password.',
+                'message' => 'You had entire previous password.',
             ], 401);
         } else {
             $admin->update([

@@ -1,5 +1,5 @@
 <?php
-
+// need
 namespace App\Http\Controllers\Api\Auth;
 
 use Exception;
@@ -20,13 +20,13 @@ class EmailVerificationNotificationController extends Controller
     // : JsonResponse|RedirectResponse
     public function store(EmailVerificationRequest $request)
     {
-
         try {
             $hash = Str::random(60);
 
             $request->user()->forceFill([
                 'remember_token' => $hash,
             ])->save();
+
 
             // sending verification mail
             $mailSender = new SendEmailVerificationMailController;

@@ -21,9 +21,9 @@ use Illuminate\Support\Facades\Route;
  */
 
 // Admin Routes
-Route::post('/admin/login/', [LoginController::class, 'login']);
+Route::post('login', [LoginController::class, 'login']);
 
-Route::group(['middleware' => 'jwt:admin', 'prefix' => '/admin'], function () {
+Route::group(['middleware' => 'jwt:admin'], function () {
     Route::post('/register', [RegisterAdminController::class, 'register']);
     Route::get('/profile', [GetAdminProfileController::class, 'profile']);
     Route::put('/profile/update', [UpdateAdminProfileController::class, 'updateProfile']);
@@ -31,8 +31,3 @@ Route::group(['middleware' => 'jwt:admin', 'prefix' => '/admin'], function () {
     Route::delete('/delete-account', [DeleteAccountController::class, 'deleteProfile']);
     Route::post('/logout', [LogoutController::class, 'Logout']);
 });
-
-// Route::post('user/forget-password', [AuthController::class, 'ForgetPassword']);
-// Route::post('sendEmail', [MailController::class, 'sendEmail']);
-// Route::post('sendPasswordResetLink', [PasswordResetRequestController::class, 'sendEmail']);
-// Route::put('response-password-reset', [ResetPasswordController::class, 'updatePassword']);

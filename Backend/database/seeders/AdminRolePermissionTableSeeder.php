@@ -25,7 +25,7 @@ class AdminRolePermissionTableSeeder extends Seeder
         foreach ($permissions as $permission) {
             Permission::create(['name' => $permission, 'guard_name' => 'admin']);
         }
-        $role = Role::create(['name' => 'student', 'guard_name' => 'admin']);
+        $role = Role::create(['name' => 'superadmin', 'guard_name' => 'admin']);
         $role->syncPermissions($permissions);
     }
 }

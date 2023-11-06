@@ -1,5 +1,9 @@
 <?php
 
+use App\Models\User;
+use App\Models\Admin;
+use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::middleware('can:user view')->get('/ip', function (Request $request) {
+    $userIP = $request->ip();
+    return "Your IP address is: " . $userIP;
 });

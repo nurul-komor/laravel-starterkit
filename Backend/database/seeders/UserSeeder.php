@@ -2,9 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use Carbon\Carbon;
+use App\Models\User;
 use Illuminate\Database\Seeder;
+use Spatie\Permission\Models\Role;
 
 class UserSeeder extends Seeder
 {
@@ -21,6 +22,8 @@ class UserSeeder extends Seeder
             'last_login' => Carbon::now()->format('l jS \\of F Y h:i:s A'),
         ]);
 
-        $user->assignRole(['writer']);
+        // assigning role
+        $role = Role::where('name', 'student')->get();
+        $user->assignRole($role);
     }
 }

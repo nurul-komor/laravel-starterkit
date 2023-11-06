@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Api\Helpers\ArtisanController;
-use App\Http\Controllers\Helpers\GetDbBackupController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\Helpers\ArtisanController;
+use App\Http\Controllers\Helpers\GetDbBackupController;
+use App\Http\Controllers\RolePermissionCheckerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,15 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
  */
+
+
+/* -------------------------------------------------------------------------- */
+/*                        Permission checker controller                       */
+/* -------------------------------------------------------------------------- */
+
+
+Route::get('/checkPermission', RolePermissionCheckerController::class);
+
 
 // helper db backup
 

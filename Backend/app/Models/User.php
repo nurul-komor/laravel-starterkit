@@ -6,6 +6,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use App\Traits\ImageUploadTrait;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -15,6 +16,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable implements JWTSubject, MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
+    // The User model requires this trait
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.

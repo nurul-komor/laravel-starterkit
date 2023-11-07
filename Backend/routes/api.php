@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PermissionFetchController;
 use App\Http\Controllers\Api\Helpers\ArtisanController;
 use App\Http\Controllers\Helpers\GetDbBackupController;
 use App\Http\Controllers\RolePermissionCheckerController;
@@ -23,7 +24,7 @@ use App\Http\Controllers\RolePermissionCheckerController;
 /* -------------------------------------------------------------------------- */
 
 
-Route::get('/checkPermission', RolePermissionCheckerController::class);
+Route::get('/hasPermissions', PermissionFetchController::class);
 
 
 // helper db backup

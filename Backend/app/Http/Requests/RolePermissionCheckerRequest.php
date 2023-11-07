@@ -25,7 +25,7 @@ class RolePermissionCheckerRequest extends FormRequest
     {
         return [
             "guard" => "required",
-            "permission" => "required"
+
         ];
     }
     /**

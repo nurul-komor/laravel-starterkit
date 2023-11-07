@@ -85,4 +85,7 @@ class User extends Authenticatable implements JWTSubject, MustVerifyEmail
             'email_verified_at' => Carbon::now(),
         ])->save();
     }
+
+
+
 }

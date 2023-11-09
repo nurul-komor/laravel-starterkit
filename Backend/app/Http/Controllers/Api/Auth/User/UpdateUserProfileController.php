@@ -18,6 +18,7 @@ class UpdateUserProfileController extends Controller
 
         /* ------------------------ when you have image field ----------------------- */
         $profile_image = $this->uploadImage($request->file('profile_image'), "users");
+
         if ($profile_image == null) {
             $profile_image = $user->profile_image;
         }

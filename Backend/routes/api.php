@@ -27,6 +27,7 @@ use App\Http\Controllers\RolePermissionCheckerController;
 Route::get('/hasPermissions', PermissionFetchController::class);
 
 
+
 // helper db backup
 
 // Admin Routes
@@ -36,6 +37,21 @@ Route::group(['middleware' => 'jwt:admin', 'prefix' => '/admin'], function () {
 
     Route::get('/database/backup/crete', [ArtisanController::class, 'databaseBackup']);
     Route::get('/database/backups/get', [GetDbBackupController::class, 'getDatabaseBackup']);
+
+
+
+
+    /* -------------------------------------------------------------------------- */
+    /*                             Role & assign role                             */
+    /* -------------------------------------------------------------------------- */
+
+    Route::prefix('role')->group(function () {
+
+    });
+
+    /* ------------------------------- create role ------------------------------ */
+
+
 });
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

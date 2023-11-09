@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from "react";
-import useCan from "../src/useCan";
+import useCan from "../src/Hooks/useCan";
 
 export default function Index() {
   const [backendUrl, setBackendUrl] = useState("");
-  // console.log(useCan("user view"));
+
   return (
     <div>
-      {useCan("user view") ? (
-        <h1>You have permission</h1>
-      ) : (
-        "You don't have permission"
-      )}
-      {useCan("user view") ? (
+      {typeof useCan("user view") != "undefined" ? (
         <h1>You have permission</h1>
       ) : (
         "You don't have permission"
